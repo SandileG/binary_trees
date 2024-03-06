@@ -6,8 +6,7 @@
  * @func: Pointer to a function to call for each node. The function
  *        takes an integer as argument and returns no value.
  *
- * This function performs a post-order traversal of a binary tree. In
- * a post-order traversal, the left subtree, then the right subtree,
+ * Description:This function performs a post-order traversal of a binary tree. * In a post-order traversal, the left subtree, then the right subtree,
  * and finally the root node are visited. For each node visited, the
  * function pointed to by `func` is called with the value of the node.
  *
