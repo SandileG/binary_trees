@@ -3,14 +3,7 @@
 /**
  * binary_trees_postorder - Performs a post-order traversal of a binary tree
  * @tree: Pointer to the root node of the tree to traverse
- * @func: Pointer to a function to call for each node. The function
- *        takes an integer as argument and returns no value.
- *
- * Description:This function performs a post-order traversal of a binary tree. * In a post-order traversal, the left subtree, then the right subtree,
- * and finally the root node are visited. For each node visited, the
- * function pointed to by `func` is called with the value of the node.
- *
- * If either `tree` or `func` is NULL, the function does nothing.
+ * @func: Pointer to a function to call for each node.
  */
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 {
