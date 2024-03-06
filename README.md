@@ -10,8 +10,8 @@ While both binary trees and binary search trees are composed of nodes with at mo
 
 * Binary Search Tree (BST): In a binary search tree, the nodes are arranged in a specific order. For any given node:
 
-* The left subtree contains nodes with values lesser than the node's value.
-* The right subtree contains nodes with values greater than the node's value.
+	* The left subtree contains nodes with values lesser than the node's value.
+	* The right subtree contains nodes with values greater than the node's value.
 
 BSTs enable efficient search, insertion, and deletion operations with average time complexities of O(log n), where n is the number of nodes in the tree.
 
