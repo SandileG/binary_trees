@@ -1,48 +1,50 @@
 #include "binary_trees.h"
 
 /**
- * binary_trees_ancestor - Finds lowest common ancestor of two nodes
- * @first: Pointer to the first node
- * @second: Pointer to the second node
- * Return: Pointer to the lowest common ancestor node, or NULL if none
+ * binary_trees_ancestor - Finds the lowest common ancestor of two nodes
+ * @first: A pointer to the first node
+ * @second: A pointer to the second node
+ *
+ * Return: A pointer to the lowest common ancestor node, or NULL if no
+ * common ancestor was found
  */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, 
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 				const binary_tree_t *second)
 {
-	/* Handle cases where either node is NULL */
-	if (!first == !second)
+	const binary_tree_t *temp;
+
+	/* Return NULL if any of the nodes is NULL */
+	if (!first || !second)
 		return (NULL);
 
-	/* If nodes are same, they are ancestors of themselves */
+	/* Return the first node if both nodes are the same */
 	if (first == second)
-		return (binary_tree_t *)first;
+		return ((binary_tree_t *)first);
 
-	/* Check if second is decsendant of first's parent */
-	if (binary_tree_is_descendant(second, first->parent))
-		return (first->parent);
-
-	/* Check if first is descendant of second's parent */
-	if (binary_tree_is_descendant(first, second->parent))
-		return (second->parent);
-
-	/* If neither is descendant, traverse upwards in both trees */
-	return (binary_trees_ancestor(first->parent, second));
-}
-
-/**
- * binary_tree_is_descendant - Checks if a node is descendant of another node
- * @node: The potential descendant node
- * @ancestor: The potential ancestor node
- * Return: 1 if node is descendant of ancestor, 0 otherwise
- */
-int binary_tree_is_descendant(const binary_tree_t *node,
-			const binary_tree_t *ancestor)
-{
-	while (node != NULL)
+	/* Check if second is a descendant of first */
+	for (temp = second; temp; temp = temp->parent)
 	{
-		if (node == ancestor)
-			return (1);
-		node = node->parent;
+		if (temp == first)
+			return ((binary_tree_t *)first);
 	}
-	return (0);
+
+	/* Check if first is a descendant of second */
+	for (temp = first; temp; temp = temp->parent)
+	{
+		if (temp == second)
+			return ((binary_tree_t *)second);
+	}
+
+	/* Traverse upwards in both trees to find the common ancestor */
+	while (first)
+	{
+		for (temp = second; temp; temp = temp->parent)
+		{
+			if (temp == first)
+				return ((binary_tree_t *)first);
+		}
+		first = first->parent;
+	}
+
+	return (NULL);
 }
