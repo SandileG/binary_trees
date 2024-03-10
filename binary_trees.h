@@ -84,5 +84,9 @@ int heap_extract(heap_t **root);
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
 int binary_tree_is_descendant(const binary_tree_t *node,
 			const binary_tree_t *ancestor);
+int bst_util(const binary_tree_t *tree, const binary_tree_t *min,
+		const binary_tree_t *max);
 int is_complete_util(const binary_tree_t *tree, int index, int nodes_count);
+
+
 #endif /* BINARY_TREES_H */
