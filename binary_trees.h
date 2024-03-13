@@ -88,6 +88,6 @@ int binary_tree_is_descendant(const binary_tree_t *node,
 int bst_util(const binary_tree_t *tree, const binary_tree_t *min,
 		const binary_tree_t *max);
 int is_complete_util(const binary_tree_t *tree, int index, int nodes_count);
-
+bst_t *bst_minimum(bst_t *node);
 
 #endif /* BINARY_TREES_H */
